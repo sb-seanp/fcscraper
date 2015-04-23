@@ -8,7 +8,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-    scraper.scrape('http://www.soccerstats.com/widetable.asp?league=italy');
+    scraper.scrape('http://www.soccerstats.com/widetable.asp?league=england');
 });
 
 module.exports = app;
