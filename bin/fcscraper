@@ -1,12 +1,8 @@
 #!/usr/bin/env node
 
-var request = require('request');
+var CronJob = require('cron').CronJob;
 var app = require('../app');
 
-var server = app.listen(3002, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-
-    console.log('Example app listening at http://%s:%s', host, port)
-    request('http://localhost:3002');
-});
+var job = new CronJob('00 00 06 * * *', function() {
+    app.runScraper();
+}, null, true, null);
