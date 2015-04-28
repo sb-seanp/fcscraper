@@ -3,6 +3,12 @@
  */
 
 var scraper = require('./lib/scrapers/clubScraper');
+var mongoose = require('mongoose');
+
+var db = mongoose.connect('mongodb://localhost:27017/fcscraper');
+mongoose.connection.on('error', function () {
+    console.error('MongoDB Connection Error. Make sure MongoDB is running.');
+});
 
 function runScraper() {
     scraper.scrape('http://www.soccerstats.com/widetable.asp?league=england', 'england1');
