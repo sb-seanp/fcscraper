@@ -3,6 +3,7 @@
  */
 
 var scraper = require('./lib/scrapers/clubScraper');
+//var injScraper = require('./lib/scrapers/injuryScraper');
 var mongoose = require('mongoose');
 
 var db = mongoose.connect('mongodb://localhost:27017/fcscraper');
@@ -17,6 +18,8 @@ function runScraper() {
     scraper.scrape('http://www.soccerstats.com/widetable.asp?league=italy', 'italy1');
     scraper.scrape('http://www.soccerstats.com/widetable.asp?league=france', 'france1');
     scraper.scrape('http://www.soccerstats.com/widetable.asp?league=portugal', 'portugal1');
+    //injScraper.scrape('http://www.whoout.com/football/premier-league/', 'england1_i');
+    //injScraper.scrape('http://www.whoout.com/football/primera-division/', 'spain1_i');
 }
 
-module.exports = runScraper;
+module.exports = runScraper();

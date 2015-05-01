@@ -3,6 +3,6 @@
 var CronJob = require('cron').CronJob;
 var app = require('../app');
 
-var job = new CronJob('00 00 06 * * *', function() {
-    app.runScraper();
+var job = new CronJob('00 00 */3 * * *', function() {
+    app;
 }, null, true, null);
